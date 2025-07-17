@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Gửi anh... 💌</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to top right, #ffdde1, #ee9ca7);
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      background: white;
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 500px;
+      z-index: 2;
+    }
+
+    .container img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid pink;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 28px;
+      color: #d6336c;
+    }
+
+    p {
+      font-size: 18px;
+      color: #444;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    button {
+      background-color: #ff4d6d;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 18px;
+      border-radius: 50px;
+      cursor: pointer;
+      margin: 10px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff1a49;
+    }
+
+    #noBtn {
+      position: relative;
+    }
+
+    .heart {
+      position: fixed;
+      width: 15px;
+      height: 15px;
+      background: pink;
+      transform: rotate(45deg);
+      animation: fall 4s linear infinite;
+      z-index: 1;
+    }
+
+    .heart::before, .heart::after {
+      content: "";
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background: pink;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -7.5px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -7.5px;
+      top: 0;
+    }
+
+    @keyframes fall {
+      0% {
+        top: -10%;
+        opacity: 1;
+      }
+      100% {
+        top: 110%;
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<audio autoplay loop>
+  <source src="nhacnen.mp3" type="audio/mpeg">
+  Trình duyệt của bạn không hỗ trợ phát nhạc.
+</audio>
+
+<div class="container">
+  <!-- THAY ẢNH ANH CR Ở ĐÂY -->
+  <img src="anhcrush.jpg" alt="Ảnh anh ấy nè">
+
+  <h1>Gửi anh... 💖</h1>
+  <p>
+    Em đã để trong lòng quá lâu rồi...<br>
+    Anh có thể cho em một cơ hội không?<br>
+    Em thật sự rất thích anh 🥺
+  </p>
+
+  <div class="buttons">
+    <button onclick="yes()">💘 Đồng ý</button>
+    <button id="noBtn" onmouseover="moveButton()">❌ Không đồng ý</button>
+  </div>
+</div>
+
+<!-- TẠO HIỆU ỨNG TRÁI TIM RƠI -->
+<script>
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+  }
+
+  setInterval(createHeart, 200);
+
+  // XỬ LÝ NÚT "KHÔNG ĐỒNG Ý" CHẠY
+  function moveButton() {
+    const button = document.getElementById('noBtn');
+    const x = Math.floor(Math.random() * 300) - 150;
+    const y = Math.floor(Math.random() * 300) - 150;
+    button.style.position = 'relative';
+    button.style.left = x + 'px';
+    button.style.top = y + 'px';
+  }
+
+  function yes() {
+    alert("Yayyy 🥰 Em biết là anh sẽ đồng ý mà!");
+  }
+</script>
+
+</body>
+</html>
